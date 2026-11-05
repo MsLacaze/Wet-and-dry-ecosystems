@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ngā Urutau o ngā Tipu | Plant Adaptations</title>
+<style>
+:root{--green:#26734d;--teal:#277f7d;--gold:#d18b36;--ink:#20352d;--paper:#fffdf7;--line:#d8e2d8}
+*{box-sizing:border-box}body{margin:0;background:#edf4ee;color:var(--ink);font:16px/1.5 Arial,sans-serif}
+header{padding:30px 6vw;background:linear-gradient(120deg,#d7eee6,#f8e8c6);border-bottom:5px solid #8dbb79}
+header .eyebrow{font-size:.8rem;font-weight:800;letter-spacing:.13em;color:#28664d}
+h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.1;margin:.3em 0;color:#173e34}header p{font-size:1.08rem;margin:.3em 0}
+main{max-width:1100px;margin:24px auto;padding:0 16px 40px}.topline{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px}
+.pill{padding:7px 13px;border-radius:30px;background:#fff;border:1px solid var(--line);font-weight:700}
+section{background:var(--paper);border:1px solid var(--line);border-radius:17px;padding:20px;margin:18px 0;box-shadow:0 3px 12px #20352d0a}
+.kicker{font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;font-weight:800;color:#66806f}
+h2{font-size:1.4rem;margin:.2em 0 .45em;color:#1f5745}.muted{color:#617268;font-size:.94rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.row{display:grid;grid-template-columns:minmax(130px,1fr) minmax(200px,2fr);gap:10px;align-items:center;margin:10px 0}
+button,select,input,textarea{font:inherit}select,input[type=text],textarea{width:100%;padding:10px;border:1px solid #bdcfc2;border-radius:9px;background:#fff;color:#20352d}
+button{cursor:pointer}.choice{border:1px solid #d4e0d6;border-radius:10px;padding:10px 12px;background:#f6faf6;text-align:left}
+.choice.selected{outline:2px solid var(--teal);background:#e4f3ef}.action{border:0;border-radius:9px;padding:10px 16px;background:var(--green);color:#fff;font-weight:800;margin-top:10px}
+.feedback{min-height:1.5em;font-weight:700;color:#28664d}.wordbank{background:#f1f5ed;padding:12px;border-radius:10px}textarea{resize:vertical}
+footer{text-align:center;color:#63766a;font-size:.85rem;padding:15px}
+@media(max-width:600px){header{padding:24px 18px}.row{grid-template-columns:1fr;gap:5px}section{padding:16px}}
+</style>
+</head>
+<body>
+<header><div class="eyebrow">YEAR 10 SCIENCE · AOTEAROA</div><h1>Ngā Urutau o ngā Tipu</h1>
+<p><strong>Plant adaptations: surviving too much or too little water</strong></p>
+<p>Explore how plants survive in <strong>taiao mākū</strong> (wet environments) and <strong>taiao maroke</strong> (dry environments).</p></header>
+<main>
+<div class="topline"><span class="pill">🌧️ Taiao mākū · Wet</span><span class="pill">☀️ Taiao maroke · Dry</span><span class="pill">Your score: <strong id="score">0</strong></span></div>
+<section><div class="kicker">Activity 1 · Kupu hou</div><h2>He kupu, he whakamārama – Match the words</h2><p class="muted">Match each te reo Māori word with its English meaning.</p><div id="vocab"></div><button class="action" id="check-vocab">Tirohia ngā whakautu · Check answers</button><p class="feedback" id="vocab-feedback"></p></section>
+<section><div class="kicker">Activity 2 · Whakarōpū</div><h2>Wet or dry? Sort the adaptations</h2><p class="muted">Choose whether each adaptation helps a plant survive in a wet or dry environment.</p><div id="sort-list"></div><button class="action" id="check-sort">Tirohia · Check sorting</button><p class="feedback" id="sort-feedback"></p></section>
+<section><div class="kicker">Activity 3 · Whakataurite</div><h2>Match the adaptation to its job</h2><p class="muted">Choose the correct function for each plant adaptation.</p><div id="functions"></div><button class="action" id="check-functions">Tirohia · Check answers</button><p class="feedback" id="functions-feedback"></p></section>
+<section><div class="kicker">Activity 4 · Whakakī āputa</div><h2>Fill in the missing words</h2><p class="muted">Use the word bank to complete each scientific explanation.</p><div class="wordbank"><strong>Word bank:</strong> oxygen · water · roots · transpiration · wind · soil</div><div id="blanks"></div><button class="action" id="check-blanks">Tirohia · Check answers</button><p class="feedback" id="blanks-feedback"></p></section>
+<section><div class="kicker">Activity 5 · Pātai whakaaro</div><h2>What would happen if…?</h2><p class="muted">Choose the most scientifically accurate answer.</p><div id="scenarios"></div><button class="action" id="check-scenarios">Tirohia · Check answers</button><p class="feedback" id="scenarios-feedback"></p></section>
+<section><div class="kicker">Activity 6 · Pono, kāore rānei?</div><h2>True or false? Pono, hē rānei?</h2><div id="truefalse"></div><button class="action" id="check-tf">Tirohia · Check answers</button><p class="feedback" id="tf-feedback"></p></section>
+<section><div class="kicker">Activity 7 · Te whakamārama pūtaiao</div><h2>Explain your thinking</h2><p>A plant growing in a wet swamp has roots surrounded by waterlogged soil. Why might it need <strong>aerenchyma</strong>? Use the words <em>oxygen</em>, <em>roots</em> and <em>waterlogged</em>.</p><textarea rows="5" placeholder="Ka whakaaro au… / I think…"></textarea><p class="muted">Check: Have you explained what aerenchyma looks like and how it helps the plant?</p></section>
+<section><div class="kicker">Activity 8 · Wero whakamutunga</div><h2>The adaptation challenge</h2><p>Imagine you are designing a plant that must survive in a very dry place in Aotearoa. Choose <strong>two adaptations</strong> and explain why they would help.</p><div class="grid" id="challenge-choices"></div><textarea id="challenge-answer" rows="5" style="margin-top:12px" placeholder="My plant would have… This would help because…"></textarea></section>
+<section><div class="kicker">Whakarāpopototanga · Your learning</div><h2>Reflect on your learning</h2><ul><li>One new kupu I learned was…</li><li>One wet adaptation is…</li><li>One dry adaptation is…</li><li>The most interesting adaptation is… because…</li></ul><button class="action" id="reset">Tīmata anō · Start again</button></section>
+<footer>Ngā urutau o ngā tipu · Plant adaptations in Aotearoa</footer>
+</main>
+<script>
+(()=>{let score=0;const $=id=>document.getElementById(id),addScore=n=>{score+=n;$('score').textContent=score};
+const vocab=[['wai','water'],['ua','rain'],['one','soil'],['rākau','tree'],['tipu','plant / grow'],['pakiaka','roots'],['rau','leaf / leaves'],['hau','air'],['repo','swamp / wetland'],['maroke','dry']];
+$('vocab').innerHTML=vocab.map((v,i)=>`<div class="row"><strong>${v[0]}</strong><select data-v="${i}"><option value="">Choose a meaning…</option>${vocab.map(x=>x[1]).sort(()=>Math.random()-.5).map(x=>`<option>${x}</option>`).join('')}</select></div>`).join('');
+$('check-vocab').onclick=()=>{let n=0;document.querySelectorAll('[data-v]').forEach(s=>{let ok=s.value===vocab[+s.dataset.v][1];s.style.borderColor=ok?'#27845b':'#bd5555';if(ok)n++});$('vocab-feedback').textContent=`${n} / ${vocab.length} correct. ${n===vocab.length?'Ka pai!':'Have another look at the kupu.'}`;addScore(n)};
+const sorts=[['Buttress roots','wet'],['Epiphytic growth','wet'],['Drip-tip foliage','wet'],['Aerenchyma tissues','wet'],['Divaricating shrubs','dry'],['Curled needle leaves','dry'],['Water-tight scales','dry'],['Cushion forms and hair','dry']];let sortAns={};
+$('sort-list').innerHTML=sorts.map((x,i)=>`<div class="row"><strong>${x[0]}</strong><div class="grid"><button class="choice sort" data-i="${i}" data-v="wet">🌧️ Wet</button><button class="choice sort" data-i="${i}" data-v="dry">☀️ Dry</button></div></div>`).join('');
+document.querySelectorAll('.sort').forEach(b=>b.onclick=()=>{sortAns[b.dataset.i]=b.dataset.v;document.querySelectorAll('.sort[data-i="'+b.dataset.i+'"]').forEach(x=>x.classList.toggle('selected',x===b))});
+$('check-sort').onclick=()=>{let n=sorts.filter((x,i)=>sortAns[i]===x[1]).length;$('sort-feedback').textContent=`${n} / 8 correct. ${n===8?'Ka rawe!':'Think about whether the plant is coping with excess water or conserving water.'}`;addScore(n)};
+const funcs=[['Buttress roots','Wide flanged roots anchor trees in soft, waterlogged soil.'],['Aerenchyma','Air spaces move oxygen to submerged roots.'],['Drip-tip foliage','Pointed leaf tips shed excess rainwater quickly.'],['Divaricating shrubs','Tangled branches shelter inner foliage from dry winds.'],['Curled needle leaves','Rolled leaves reduce water loss through transpiration.'],['Cushion forms and hair','Compact woolly forms deflect sun and conserve moisture.'],['Epiphytic growth','Growing on branches gives access to light and moisture in the air.'],['Water-tight scales','Scaly skin reduces water loss.']];
+$('functions').innerHTML=funcs.map((x,i)=>`<div class="row"><strong>${x[0]}</strong><select data-f="${i}"><option value="">Choose its job…</option>${funcs.map(y=>y[1]).sort(()=>Math.random()-.5).map(y=>`<option>${y}</option>`).join('')}</select></div>`).join('');
+$('check-functions').onclick=()=>{let n=0;document.querySelectorAll('[data-f]').forEach(s=>{let ok=s.value===funcs[+s.dataset.f][1];s.style.borderColor=ok?'#27845b':'#bd5555';if(ok)n++});$('functions-feedback').textContent=`${n} / 8 correct. ${n===8?'Ka pai!':'Try matching the structure to the job it performs.'}`;addScore(n)};
+const blanks=[['Aerenchyma contains air spaces that help move ______ to roots.','oxygen'],['Buttress roots help anchor trees in soft, waterlogged ______.','soil'],['Plants lose water vapour through a process called ______.','transpiration'],['Drip-tip leaves help rain ______ off the leaf surface.','water'],['Divaricating branches can protect inner leaves from strong ______.','wind'],['Aerenchyma helps submerged ______ receive oxygen.','roots']];
+$('blanks').innerHTML=blanks.map((x,i)=>`<label style="display:block;margin:12px 0">${i+1}. ${x[0]}<input type="text" data-b="${i}" placeholder="Type the missing word" style="margin-top:5px"></label>`).join('');
+$('check-blanks').onclick=()=>{let n=0;document.querySelectorAll('[data-b]').forEach(s=>{let ok=s.value.trim().toLowerCase()===blanks[+s.dataset.b][1];s.style.borderColor=ok?'#27845b':'#bd5555';if(ok)n++});$('blanks-feedback').textContent=`${n} / 6 correct. ${n===6?'Ka pai!':'Check the word bank and try again.'}`;addScore(n)};
+const scenarios=[['A plant grows in swampy soil where there is very little oxygen. Which adaptation would be most useful?',['Aerenchyma tissues','Water-tight scales','Curled needle leaves'],0],['A plant lives in a dry, windy environment. Which feature could protect its inner leaves?',['Drip-tip foliage','Divaricating branches','Buttress roots'],1],['Why are drip-tip leaves useful in a very wet forest?',['They store water in the leaf','They help excess rain run off quickly','They absorb oxygen from the soil'],1],['Why might a plant have tightly curled leaves?',['To reduce water loss','To attract more rain','To make its roots wider'],0]];let sc={};
+$('scenarios').innerHTML=scenarios.map((q,i)=>`<div style="margin:16px 0"><strong>${i+1}. ${q[0]}</strong><div class="grid" style="margin-top:8px">${q[1].map((a,j)=>`<button class="choice scenario" data-q="${i}" data-a="${j}">${a}</button>`).join('')}</div></div>`).join('');
+document.querySelectorAll('.scenario').forEach(b=>b.onclick=()=>{sc[b.dataset.q]=+b.dataset.a;document.querySelectorAll('.scenario[data-q="'+b.dataset.q+'"]').forEach(x=>x.classList.toggle('selected',x===b))});
+$('check-scenarios').onclick=()=>{let n=scenarios.filter((q,i)=>sc[i]===q[2]).length;$('scenarios-feedback').textContent=`${n} / 4 correct. ${n===4?'Ka mau te wehi!':'Think about the environmental challenge each feature helps solve.'}`;addScore(n)};
+const tf=[['Aerenchyma helps oxygen reach roots in waterlogged soil.',true],['Buttress roots help trees survive in soft swamp soil.',true],['Drip-tip leaves are mainly used to prevent water loss in deserts.',false],['Divaricating shrubs have tangled branches.',true],['Curled leaves can reduce transpiration.',true],['Cushion plants grow tall to catch more wind.',false]];let tfans={};
+$('truefalse').innerHTML=tf.map((x,i)=>`<div class="row"><span>${i+1}. ${x[0]}</span><div class="grid"><button class="choice tf" data-i="${i}" data-v="true">Pono · True</button><button class="choice tf" data-i="${i}" data-v="false">Hē · False</button></div></div>`).join('');
+document.querySelectorAll('.tf').forEach(b=>b.onclick=()=>{tfans[b.dataset.i]=b.dataset.v==='true';document.querySelectorAll('.tf[data-i="'+b.dataset.i+'"]').forEach(x=>x.classList.toggle('selected',x===b))});
+$('check-tf').onclick=()=>{let n=tf.filter((x,i)=>tfans[i]===x[1]).length;$('tf-feedback').textContent=`${n} / 6 correct. ${n===6?'Ka pai rawa atu!':'Review the wet and dry adaptations.'}`;addScore(n)};
+['Divaricating branches','Curled needle leaves','Water-tight scales','Cushion form and fine hairs','Buttress roots','Drip-tip leaves'].forEach(x=>$('challenge-choices').insertAdjacentHTML('beforeend',`<label class="choice"><input type="checkbox" value="${x}"> ${x}</label>`));
+$('reset').onclick=()=>{document.querySelectorAll('select,input,textarea').forEach(x=>{if(x.type==='checkbox')x.checked=false;else x.value='';x.style.borderColor=''});document.querySelectorAll('.selected').forEach(x=>x.classList.remove('selected'));['vocab-feedback','sort-feedback','functions-feedback','blanks-feedback','scenarios-feedback','tf-feedback'].forEach(x=>$(x).textContent='');score=0;$('score').textContent='0';sortAns={};sc={};tfans={}};
+})();
+</script>
+</body></html>
